@@ -1,0 +1,140 @@
+.btn {
+  cursor: pointer;
+
+  &,
+  &:hover,
+  &:active,
+  &:focus {
+    color: $white;
+    background-color: transparent;
+  }
+}
+
+.btn-primary {
+  border-color: currentColor;
+}
+
+.btn-secondary {
+  padding: .1rem 1rem;
+  margin: .5rem;
+  font-size: .8rem;
+  border: 1px solid transparentize($white, .5);
+  border-radius: 2rem;
+
+  @include media-breakpoint-down(md) {
+    padding-right: 2rem;
+    padding-left: 2rem;
+    font-size: .95rem;
+  }
+}
+
+.btn-dark {
+  &,
+  &:hover,
+  &:active,
+  &:focus {
+    color: $black;
+  }
+}
+
+.btn-left,
+.btn-center,
+.btn-right {
+  display: block;
+}
+
+.btn-left {
+  margin-right: auto;
+  margin-left: 0;
+}
+
+.btn-center {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.btn-right {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+.btn-wider {
+  padding-right: 3.125rem;
+  padding-left: 3.125rem;
+}
+
+.btn-wide {
+  padding-right: 4.5rem;
+  padding-left: 4.5rem;
+}
+
+.btn-line-dashed {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: "";
+    border: 0 dashed currentColor;
+  }
+}
+
+.btn-line-right,
+.btn-line-left {
+  &::before {
+    top: 50%;
+    width: 100vw;
+    height: 0;
+    border-top-width: 1px;
+  }
+}
+
+.btn-line-right {
+  &::before {
+    left: 100%;
+  }
+}
+
+.btn-line-left {
+  &::before {
+    right: 100%;
+  }
+}
+
+.btn-line-bottom {
+  &::before {
+    top: 100%;
+    left: 50%;
+    width: 0;
+    height: 100vw;
+    border-left-width: 1px;
+  }
+}
+
+.btn-scrolldown {
+  display: block;
+  width: 3.375rem;
+  height: 3.375rem;
+  padding: 0;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: transparentize($blue, .4);
+  background-image: url("../img/icons/scroll.svg");
+  background-repeat: no-repeat;
+  background-position: center 59%;
+  border: none;
+  border-radius: 50%;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: transparentize($blue, .2);
+  }
+}
+
+.btn-margintop-low {
+  margin-top: 3.125rem;
+}
+
+.btn-margintop-high {
+  margin-top: 6rem;
+}

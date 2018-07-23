@@ -1,0 +1,110 @@
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-align: center;
+}
+
+h1,
+h3,
+h4 {
+  font-family: $font-family-heavy;
+}
+
+h1 {
+  margin: 5rem 0;
+}
+
+h2 {
+  margin: 3rem 0;
+  font-family: $font-family-light;
+}
+
+h3 {
+  margin: 1rem 0;
+  line-height: 2rem;
+
+  // stylelint-disable-next-line selector-no-qualifying-type
+  &.heading-bigger {
+    line-height: 2.5rem;
+  }
+
+  // stylelint-disable-next-line selector-no-qualifying-type
+  &.heading-biggest {
+    line-height: 3rem;
+  }
+}
+
+p {
+  color: transparentize($white, .2);
+}
+
+strong {
+  color: $white;
+}
+
+br {
+  @include media-breakpoint-down(md) {
+    display: none;
+  }
+}
+
+.text-muted {
+  display: block;
+  margin-top: 1.5rem;
+  font-family: $font-family-sans-serif;
+}
+
+strong,
+.font-weight-bold,
+.font-weight-light {
+  // stylelint-disable-next-line declaration-no-important
+  font-weight: 400 !important;
+}
+
+strong,
+.font-weight-bold {
+  font-family: $font-family-heavy;
+
+}
+
+.font-weight-light {
+  font-family: $font-family-light;
+}
+
+@for $i from 1 through length($headings-font-sizes) {
+  $heading-name:      nth(nth($headings-font-sizes, $i), 1);
+  $heading-font-size: nth(nth($headings-font-sizes, $i), 2);
+
+  #{$heading-name} {
+    &.heading-bigger {
+      font-size: $heading-font-size * 1.42;
+
+      @include media-breakpoint-down(sm) {
+        font-size: $heading-font-size * .95;
+      }
+    }
+
+    &.heading-biggest {
+      font-size: $heading-font-size * 1.833;
+
+      @include media-breakpoint-down(sm) {
+        font-size: $heading-font-size * 1.22;
+      }
+    }
+
+    @include media-breakpoint-down(sm) {
+      font-size: $heading-font-size * 2 / 3;
+    }
+  }
+}
+
+.heading-blue {
+  color: $blue;
+}

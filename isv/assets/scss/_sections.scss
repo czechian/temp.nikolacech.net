@@ -1,0 +1,524 @@
+.section {
+  position: relative;
+  z-index: 1;
+  padding: 2rem 0 6rem;
+  margin: 0 auto;
+  background-color: $body-bg;
+  background-image: linear-gradient(-180deg, $body-bg 0%, $gray-500 97%);
+
+  h3 {
+    margin: 2rem 0;
+  }
+}
+
+.section-overflow-hidden {
+  overflow: hidden;
+}
+
+.section-overflowing {
+  z-index: 9;
+  overflow: visible;
+
+  & + & {
+    z-index: 8;
+  }
+
+  > .container {
+    &:last-child {
+      margin-bottom: -10rem;
+    }
+  }
+
+  + .section {
+    padding-top: 6rem;
+  }
+}
+
+.section-page-top {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 80vh;
+  padding: 0;
+  background-position: center;
+  background-size: cover;
+
+  @include media-breakpoint-up(lg) {
+    min-height: 40rem;
+  }
+}
+
+.section-page-404 {
+  text-align: center;
+  background: $gray-400;
+}
+
+.links-404 {
+  display: inline-block;
+  text-align: left;
+
+  a {
+    display: block;
+    line-height: 30px;
+  }
+}
+
+.section-blue-bg {
+  background-color: $blue;
+  background-image: linear-gradient(-150deg, $blue 0%, $darkblue 100%);
+}
+
+.section-dark-bg {
+  background-image: linear-gradient(-180deg, $gray-400 0%, $gray-500 97%);
+}
+
+.section-blue-bg-bordered,
+.section-dark-bg-bordered {
+  padding: 0 2rem;
+  box-shadow: 0 0 20px 0 transparentize($black, .75);
+
+  .row {
+    @include media-breakpoint-down(md) {
+      margin-right: -$grid-gutter-width;
+      margin-left: -$grid-gutter-width;
+    }
+  }
+}
+
+.section-blue-bg-bordered {
+  .col {
+    padding: 2rem 3.25rem 3rem;
+    border: 0 solid transparentize($white, .5);
+
+    &:last-child {
+      border: none;
+    }
+
+    @include media-breakpoint-down(md) {
+      border-bottom-width: 1px;
+    }
+
+    @include media-breakpoint-up(lg) {
+      border-right-width: 1px;
+    }
+  }
+
+  .col-icon-top {
+    padding-top: 6.2rem;
+
+    &::before {
+      top: 2rem;
+    }
+
+    &.col-icon-lg {
+      height: 8rem;
+    }
+  }
+}
+
+.section-dark-bg-bordered {
+  background-image: linear-gradient(-180deg, $body-bg 0%, $gray-500 97%);
+
+  > .row {
+    > .col {
+      border: 0 solid transparentize($white, .8);
+
+      &:last-child {
+        border: none;
+      }
+
+      @include media-breakpoint-down(md) {
+        border-bottom-width: 1px;
+      }
+
+      @include media-breakpoint-up(lg) {
+        border-right-width: 1px;
+      }
+    }
+  }
+}
+
+.section-img-bg {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.section-zigzag {
+  h3 {
+    text-align: left;
+  }
+
+  @include media-breakpoint-up(lg) {
+    .col {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      &:first-child {
+        &,
+        h3 {
+          text-align: right;
+        }
+      }
+    }
+  }
+}
+
+.col-zigzag-img {
+  position: relative;
+  text-align: center;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    content: "";
+    background-repeat: inherit;
+    background-position: inherit;
+    background-size: inherit;
+  }
+
+  @include media-breakpoint-down(md) {
+    margin: 0 0 2rem;
+
+    &:first-child {
+      order: 1;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    margin: 1rem 0;
+
+    &:first-child {
+      text-align: right;
+    }
+  }
+}
+
+.col-spread {
+  display: flex;
+  flex-direction: column;
+
+  * {
+    flex: 0 0 auto;
+  }
+
+  p {
+    flex: 1 1 auto;
+  }
+}
+
+.col-icon {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+}
+
+.col-icon-left {
+  padding-left: 5rem;
+
+  &::before {
+    width: 3.25rem;
+    height: 3.25rem;
+  }
+}
+
+.col-icon-top {
+  padding-top: 4.2rem;
+
+  &::before {
+    right: 0;
+    height: 4.2rem;
+  }
+}
+
+.col-icon-lg {
+  .col-icon-top {
+    padding-top: 6rem;
+
+    &::before {
+      height: 6rem;
+    }
+  }
+}
+
+.col-icon-only {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 6rem;
+
+  &::before {
+    display: block;
+    width: 100%;
+    max-width: 6rem;
+    height: 100%;
+    max-height: 3rem;
+    content: "";
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  &.col-icon-lg {
+    &::before {
+      max-width: 12rem;
+      max-height: 12rem;
+    }
+  }
+}
+
+.col {
+  img {
+    max-width: 100%;
+  }
+}
+
+.section-img {
+  background-position: center;
+  background-size: cover;
+}
+
+.bg-image-1 {
+  background-image: url("../img/isv-bg-1.jpg");
+}
+
+.bg-image-2 {
+  background-image: url("../img/isv-bg-2.jpg");
+}
+
+.bg-image-3 {
+  background-image: url("../img/isv-bg-3.jpg");
+}
+
+.bg-image-doubleverify {
+  background-image: url("../img/doubleverify.jpg");
+}
+
+.bg-image-servicechannel {
+  background-image: url("../img/servicechannel.jpg");
+}
+
+.bg-image-insurance {
+  background-image: url("../img/insurance.jpg");
+}
+
+.bg-image-software {
+  background-image: url("../img/software.jpg");
+}
+
+.bg-image-solution-insurance {
+  background-image: url("../img/top-banners/solution-insurance.jpg");
+}
+
+.bg-insurance-1,
+.bg-insurance-3 {
+  height: 13.75rem;
+
+  @include media-breakpoint-up(lg) {
+    height: 30.6875rem;
+
+    &::before {
+      right: 5rem;
+      left: -50%;
+    }
+  }
+}
+
+.bg-insurance-2,
+.bg-insurance-4 {
+  height: 17.125rem;
+
+  @include media-breakpoint-up(lg) {
+    height: 38.25rem;
+
+    &::before {
+      right: -50%;
+      left: 5rem;
+    }
+  }
+}
+
+.bg-insurance-1::before {
+  background-image: url("../img/insurance/insurance-1-mobile.png");
+
+  @include media-breakpoint-up(lg) {
+    background-image: url("../img/insurance/insurance-1.png");
+  }
+}
+
+.bg-insurance-2::before {
+  background-image: url("../img/insurance/insurance-2-mobile.png");
+
+  @include media-breakpoint-up(lg) {
+    background-image: url("../img/insurance/insurance-2.png");
+  }
+}
+
+.bg-insurance-3::before {
+  background-image: url("../img/insurance/insurance-3-mobile.png");
+
+  @include media-breakpoint-up(lg) {
+    background-image: url("../img/insurance/insurance-3.png");
+  }
+}
+
+.bg-insurance-4::before {
+  background-image: url("../img/insurance/insurance-4-mobile.png");
+
+  @include media-breakpoint-up(lg) {
+    background-image: url("../img/insurance/insurance-4.png");
+  }
+}
+
+.col-numbered {
+  &::before {
+    position: absolute;
+    top: -2rem;
+    left: -.8rem;
+    z-index: -1;
+    font-family: $font-family-heavy;
+    font-size: 8.75rem;
+    color: transparentize($white, .9);
+  }
+
+  @include media-breakpoint-down(md) {
+    &::before {
+      top: 0;
+      font-size: 5.83rem;
+    }
+  }
+
+  @for $i from 1 through $grid-columns {
+    &:nth-child(#{$i})::before {
+      content: "#{$i}";
+    }
+  }
+}
+
+.col-bg {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.col-12 {
+  @include media-breakpoint-down(md) {
+    padding-bottom: $grid-gutter-width * 4 / 3;
+  }
+}
+
+.col-bg-zendesk {
+  background-image: url("../img/zendesk.png");
+}
+
+.col-bg-forrester {
+  background-image: url("../img/forrester.png");
+}
+
+.col-bg-software {
+  background-image: url("../img/software.jpg");
+}
+
+.col-bg-insurance {
+  background-image: url("../img/insurance.jpg");
+}
+
+.col-img {
+  height: 16.25rem;
+  padding: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 0 0 20px 0 transparentize($black, .75);
+
+  &,
+  &:hover,
+  &:active,
+  &:focus {
+    color: $white;
+    text-decoration: none;
+  }
+
+  &::before {
+    height: 6.5rem;
+  }
+
+  &.col-link {
+    &:hover {
+      z-index: 1;
+      transform: scale(1.1);
+    }
+
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      transition: transform .2s;
+    }
+  }
+
+  h3 {
+    margin: 0;
+    font-family: $font-family-light;
+  }
+}
+
+.col-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &::before {
+    position: static;
+    display: block;
+    width: 100%;
+  }
+}
+
+.col-bordered {
+  border: 0 solid transparentize($white, .7);
+}
+
+.col-bordered-light {
+  border: 0 solid transparentize($white, .8);
+}
+
+.col-bordered-dashed {
+  border-style: dashed;
+}
+
+$orientations: top, right, bottom, left;
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  .col-bordered-#{nth($breakpoint, 1)} {
+    @include media-breakpoint-up($breakpoint) {
+      @each $orientation in $orientations {
+        &-up-#{$orientation} {
+          border-#{$orientation}-width: 1px;
+        }
+      }
+    }
+
+    @include media-breakpoint-down($breakpoint) {
+      @each $orientation in $orientations {
+        &-down-#{$orientation} {
+          border-#{$orientation}-width: 1px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Avenir;
+        }
+
+        .acquisition-popup {
+            position: fixed;
+            bottom: 0;
+            right: 20px;
+            width: 300px;
+            padding: 20px;
+            border: 1px solid #dde4eb;
+            border-bottom: none;
+            border-radius: 5px 5px 0 0;
+            box-shadow: 0 1px 20px rgba(20,56,93,.2);
+            text-align: center;
+            transform: translateY(calc(100% + 20px));
+            transition: transform 1s;
+        }
+
+        .acquisition-popup.visible {
+            transform: translateY(0);
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 20px;
+            height: 20px;
+            padding: 0;
+            border: none;
+            outline: none;
+            fill: #6D7680;
+            text-align: center;
+            background: none;
+            cursor: pointer;
+        }
+
+        .popup-close:hover {
+            fill: #14b2e2;
+        }
+
+        .popup-heading {
+            display: block;
+            font-size: 20px;
+            font-weight: normal;
+        }
+
+        .popup-button {
+            display: block;
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px solid rgba(0,0,0,.1);
+            border-radius: 5px;
+            box-shadow: 1px 1px 0 rgba(20,56,93,.09);
+            color: white;
+            font-size: 16px;
+            text-decoration: none;
+            background-color: #14b2e2;
+            cursor: pointer;
+        }
+
+        .popup-button:hover {
+            box-shadow: 0 1px 1px 0 rgba(20,56,93,.15), inset 0 -1px 0 0 rgba(0,0,0,.15);
+            background: #129cc6;
+        }
+
+        .popup-action {
+            margin: 0 10px;
+            color: #6d7680;
+            font-size: 12px;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .popup-action:hover {
+            color: #464E56;
+        }
+    </style>
+</head>
+<body>
+    <div class="acquisition-popup">
+        <button class="popup-close close-fornow">
+            <svg width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg"><path d="M13.855 13.4L7.492 7.02l6.03-6.012c.058-.07.087-.153.087-.246 0-.094-.03-.176-.09-.246-.07-.07-.154-.106-.253-.106-.1 0-.18.035-.238.106L7 6.526.97.517C.913.446.834.41.734.41.633.41.55.445.48.516.42.586.39.668.39.762c0 .093.03.175.09.246L6.507 7.02.145 13.4c-.07.07-.106.153-.106.246 0 .094.034.176.105.247.035.035.073.06.114.08.04.016.084.025.13.025.036 0 .077-.01.124-.026.047-.018.088-.044.123-.08L7 7.513l6.363 6.38c.035.036.076.062.123.08.047.017.088.026.123.026.046 0 .09-.01.13-.026.042-.018.08-.044.115-.08.07-.07.106-.152.106-.246 0-.093-.034-.175-.105-.246z" fill-rule="evenodd"/></svg>
+        </button>
+        <span class="popup-heading">Help us improve our documentation</span>
+        <a class="popup-button" data-url="somewhere">Take a short interactive test</a>
+        <div class="popup-actions">
+            <a class="popup-action close-forever">I don’t want to help</a>
+            <a class="popup-action close-fornow">I'll take it later</a>
+        </div>
+    </div>
+    <script>
+        var $jQ = $;
+
+        $jQ(document).ready(function() {
+            var popup = $jQ ('.acquisition-popup');
+
+            if(document.cookie.indexOf('hasSeenAcquisitionPopup') === -1) {
+                setTimeout(openPopup, 5000);
+            }
+
+            $jQ ('.popup-action, .popup-close').on('click', function() {
+                closePopup();
+                saveCookie($(this).hasClass('close-forever'));
+            });
+
+            $jQ ('.popup-button').on('click', function() {
+                closePopup();
+                saveCookie(true);
+                window.open($(this).data('url'), '_blank');
+            });
+
+            function saveCookie(forever = false) {
+                var cookie = 'hasSeenAcquisitionPopup=true;'
+                if(forever) {
+                    var expires = new Date(Date.now() + 365 * 24 * 3600 * 1000);
+                    cookie += ' expires=' + expires.toUTCString();
+                }
+
+                console.log(cookie);
+
+                document.cookie = cookie;
+            }
+
+            function closePopup() {
+                popup.removeClass('visible');
+            }
+
+            function openPopup() {
+                popup.addClass('visible');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+$white:    #fff;
+$gray-100: #404040;
+$gray-200: #4f4f4f;
+$gray-300: #3c3d3f;
+$gray-400: #0a0d14;
+$black:    #000;
+
+$body-bg:                   $gray-200;
+$body-color:                $white;
+$text-muted:                $white;
+$small-font-size:           48%;
+
+$link-color:                $white;
+$link-decoration:           underline;
+$link-hover-color:          darken($link-color, 15%);
+
+// stylelint-disable
+$grays: ();
+$grays: map-merge((
+  "100": $gray-100,
+  "200": $gray-200,
+  "300": $gray-300,
+  "400": $gray-400
+), $grays);
+
+$blue:    #14b2e2;
+$darkblue:#1782be;
+
+$colors: ();
+$colors: map-merge((
+  "blue":       $blue,
+  "darkblue":   $darkblue
+), $colors);
+
+$theme-colors: ();
+$theme-colors: map-merge((
+  "primary":    $white,
+  "secondary":  $white,
+  "dark":       $black
+), $theme-colors);
+// stylelint-enable
+
+$border-color:                $white;
+$border-radius:               3px;
+
+// stylelint-disable value-keyword-case
+$font-family-sans-serif:      "AvenirRoman", "Helvetica Neue", Arial, sans-serif;
+$font-family-base:            $font-family-sans-serif;
+$font-family-heavy:           "AvenirHeavy", "Helvetica Neue", arial, sans-serif;
+$font-family-light:           "AvenirLight", "Helvetica Neue", arial, sans-serif;
+// stylelint-enable value-keyword-case
+
+$font-size-base:              16px;
+
+$h1-font-size:                3.125rem;
+$h2-font-size:                2.5rem;
+$h3-font-size:                1.5rem;
+$h4-font-size:                1.125rem;
+
+// stylelint-disable
+$headings-font-sizes: ();
+$headings-font-sizes: map-merge((
+  "h1": $h1-font-size,
+  "h2": $h2-font-size,
+  "h3": $h3-font-size,
+  "h4": $h4-font-size
+), $headings-font-sizes);
+// stylelint-enable
+
+$headings-font-weight:        normal;
+
+// Navbar
+
+$nav-link-padding-y:                .75em;
+$nav-link-padding-x:                1.375rem;
+
+$navbar-padding-y:                  1rem;
+$navbar-padding-x:                  1.375rem;
+
+$navbar-brand-font-size:            0;
+$nav-link-height:                   $navbar-brand-font-size * $line-height-base !default;
+$navbar-brand-height:               47px;
+$navbar-brand-padding-y:            ($navbar-brand-height - $nav-link-height) / 2 !default;
+
+$navbar-dark-color:                 rgba($white,.5) !default;
+$navbar-dark-hover-color:           rgba($white,.75) !default;
+$navbar-dark-active-color:          $white !default;
+$navbar-dark-disabled-color:        rgba($white,.25) !default;
+$navbar-dark-toggler-border-color:  rgba($white,.1) !default;

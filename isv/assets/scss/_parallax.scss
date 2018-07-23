@@ -1,0 +1,76 @@
+.section-parallax {
+  @include media-breakpoint-down(md) {
+    &.section {
+      padding-bottom: 0;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    height: 42.125rem;
+  }
+}
+
+.parallax-container {
+  @include media-breakpoint-down(md) {
+    position: relative;
+    height: 0;
+    padding-top: 50%;
+  }
+
+  @include media-breakpoint-up(lg) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+.parallax {
+  z-index: -1;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.parallax,
+.parallax-layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.parallax-layer {
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-size: 100%;
+  transition: top .1s;
+}
+
+.bg-image-homepage {
+  .parallax-container {
+    @include media-breakpoint-down(md) {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: auto;
+    }
+  }
+
+  .parallax-layer {
+    height: 110vh;
+    background-position: center;
+    background-size: cover;
+
+    @include media-breakpoint-down(md) {
+      display: none;
+
+      &.parallax-layer-1 {
+        display: block;
+      }
+    }
+  }
+}

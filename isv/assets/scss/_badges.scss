@@ -1,0 +1,33 @@
+.badge {
+  position: relative;
+  display: inline-block;
+  height: 3rem;
+  padding: .68rem 1rem .68rem 3.5rem;
+  margin: 1.25rem auto;
+  font-size: 1.2rem;
+  line-height: 1.625rem;
+  text-transform: uppercase;
+  background-color: transparentize($black, .7);
+  border: .1rem solid $white;
+  border-radius: 1.5rem;
+
+  &::before {
+    position: absolute;
+    top: .4rem;
+    left: .4rem;
+    width: 2rem;
+    height: 2rem;
+    content: "";
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  + h1 {
+    margin-top: 0;
+  }
+}
+
+.badge-insurance::before {
+  background-image: url("../img/badges/insurance.png");
+}

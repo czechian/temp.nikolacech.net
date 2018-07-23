@@ -1,0 +1,259 @@
+.navbar {
+  z-index: 10;
+  padding: 0;
+  transition: margin-top .5s;
+
+  @include media-breakpoint-up(lg) {
+    background-image: linear-gradient(-180deg, transparentize($black, .2) 0%, transparentize($black, .65) 100%);
+  }
+}
+
+.navbar-scroll-fixed-top,
+.navbar-scroll-fixed,
+.navbar-scroll-fixed-hidden {
+  right: 0;
+  left: 0;
+}
+
+.navbar-scroll-fixed-top {
+  position: absolute;
+  top: 0;
+}
+
+.navbar-scroll-fixed,
+.navbar-scroll-fixed-hidden {
+  position: fixed;
+  top: -4rem;
+}
+
+.navbar-scroll-fixed-visible {
+  margin-top: 4rem;
+}
+
+.navbar-scroll-fixed-hidden {
+  margin-top: 0;
+}
+
+.navbar-nav {
+  margin: 0 auto;
+
+  @include media-breakpoint-down(md) {
+    position: absolute;
+    top: 0;
+    right: 10%;
+    bottom: 0;
+    left: 10%;
+    justify-content: center;
+    height: 100%;
+  }
+}
+
+.nav-item {
+  font-size: 1.25rem;
+  color: transparentize($white, .3);
+  border-bottom: 1px solid transparentize($white, .7);
+
+  &:last-child {
+    border-bottom-color: transparent;
+  }
+
+  &.active {
+    color: transparentize($white, .1);
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: $white;
+  }
+
+  @include media-breakpoint-up(lg) {
+    font-size: .9rem;
+    border-bottom-color: transparent;
+    border-bottom-width: 3px;
+
+    &.active {
+      border-bottom-color: $white;
+    }
+  }
+}
+
+.nav-link {
+  text-align: center;
+  text-decoration: none;
+
+  &,
+  &:hover,
+  &:active,
+  &:focus {
+    color: inherit;
+  }
+
+  &,
+  .navbar-expand-lg .navbar-nav & {
+    padding: .75rem 1rem;
+  }
+
+  @include media-breakpoint-down(md) {
+    padding: 1rem 0;
+  }
+}
+
+.navbar-buttons {
+  .btn {
+    position: absolute;
+    margin: .5rem auto;
+  }
+
+  @include media-breakpoint-up(lg) {
+    position: absolute;
+    top: 1rem;
+    right: $navbar-padding-x;
+    display: block;
+
+    .btn {
+      position: static;
+      display: inline-block;
+      margin: .5rem;
+    }
+  }
+}
+
+.contact-button {
+  @include media-breakpoint-down(md) {
+    top: calc(100vh - 5.5rem);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.login-button {
+  @include media-breakpoint-down(md) {
+    display: none;
+  }
+}
+
+.navbar-collapse {
+  background-color: transparent;
+  transition-duration: .5s;
+  transition-property: opacity, height;
+
+  &.collapsing,
+  &.collapse.show {
+    @include media-breakpoint-down(md) {
+      background-color: transparentize($black, .1);
+    }
+  }
+
+  &.collapse.show {
+    @include media-breakpoint-down(md) {
+      height: 100vh;
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+  }
+
+  @include media-breakpoint-up(lg) {
+    padding: $navbar-padding-y $navbar-padding-x 0;
+  }
+}
+
+.navbar-brand,
+.navbar-toggler {
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  width: 3.5rem;
+  height: 4rem;
+}
+
+.navbar-brand {
+  left: 0;
+  background-image: url("../img/gd-logo.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: .9;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.navbar-toggler {
+  right: 0;
+  padding: 1rem;
+  border: none;
+
+  &,
+  &:focus,
+  &:active {
+    outline: none;
+  }
+
+  .navbar-toggler-icon,
+  .navbar-toggler-center {
+    width: 1.5rem;
+    height: 1.5rem;
+
+    &::before,
+    &::after {
+      position: absolute;
+      top: 1.75rem;
+      right: 1rem;
+      left: 1rem;
+      height: 2px;
+      margin-top: -1px;
+      content: "";
+      background-color: $white;
+      transition: all .5s;
+    }
+  }
+
+  .navbar-toggler-icon {
+    background: none;
+
+    &::before {
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+
+  .navbar-toggler-center {
+    &::before {
+      opacity: 0;
+    }
+
+    &::after {
+      display: none;
+    }
+  }
+
+  &.collapsed {
+    .navbar-toggler-icon {
+      &::before,
+      &::after {
+        transform: none;
+      }
+
+      &::before {
+        margin-top: -8px;
+      }
+
+      &::after {
+        margin-top: 6px;
+      }
+    }
+
+    .navbar-toggler-center::before {
+      opacity: 1;
+    }
+  }
+}

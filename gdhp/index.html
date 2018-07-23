@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GoodData</title>
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="jquery-3.2.1.min.js"></script>
+</head>
+<body>
+    <header>
+        <a href="." class="gd-logo"></a>
+        <nav class="menu-wrapper">
+            <ul class="menu">
+                <li class="menu-item"><a href="." title="Customers">Customers</a></li>
+                <li class="menu-item"><a href="." title="Platform">Platform</a></li>
+                <li class="menu-item"><a href="." title="Solutions">Solutions</a></li>
+                <li class="menu-item"><a href="." title="Services">Services</a></li>
+                <li class="menu-item"><a href="." title="Resources">Resources</a></li>
+                <li class="menu-item"><a href="." title="Company">Company</a></li>
+                <li class="menu-item"><a href="." title="Partners">Partners</a></li>
+            </ul>
+        </nav>
+        <a href="" class="example-link">Get an Example</a>
+    </header>
+    <section class="section-1">
+        <h1>GoodData is</h1>
+        <hgroup>
+            <h2>changing the way data drives business</h2>
+            <!--<h2>a platform for monetizing your data</h2>-->
+        </hgroup>
+        <a href="" class="button start-today-link">Start Today</a>
+    </section>
+    <section class="section-2">
+        <div class="content-wrapper">
+            <div class="content">
+                <h3>One platform, many solutions</h3>
+                <p>We understand that every business is unique. We think that in order really help the companies in their digital transformation we need to trully understand where are the points of work, where their data can have an immediate and valuable impact.</p>
+                <a href="#" class="button check-platform-link">Check the Platform</a>
+            </div>
+            <div class="macbook">
+                <div class="macbook-1"></div>
+            </div>
+            <div class="iphone">
+                <div class="iphone-1"></div>
+            </div>
+        </div>
+    </section>
+    <img src="images/bottom.png" alt="" class="section-3">
+    <script>
+        $(document).ready(function() {
+            var bgs = $('.section-1');
+            var section = $('.section-2');
+            var wrapper = $('.content-wrapper');
+            var macbook = $('.macbook');
+            var macbookInner = $('.macbook-1');
+            var iphone = $('.iphone');
+            var iphoneInner = $('.iphone-1');
+            var header = $('header');
+
+            $(window).on('scroll resize load', function() {
+                bgs.css({
+                    'background-position': '0 ' + (Math.round(-window.scrollY / 1.5)) + 'px, 0 ' + (Math.round(-window.scrollY / 1.2)) + 'px, 0 ' + (Math.round(-window.scrollY / 2)) + 'px, 0 ' + (Math.round(-window.scrollY / 1.5)) + 'px, 0 ' + (Math.round(-window.scrollY / 3)) + 'px'
+                });
+
+                header.toggleClass('pinned', window.scrollY > 23);
+
+                if(window.scrollY >= section.offset().top) {
+                    var screenRatio = window.innerWidth / 1800;
+                    var offset = window.scrollY - section.offset().top;
+                    var wrapperOffset = section.offset().top + section.height() - window.scrollY - window.innerHeight > 0 ? offset : section.height() - wrapper.height();
+
+                    wrapper.css({
+                        top: wrapperOffset + 'px'
+                    });
+
+                    macbookInner.css({
+                        height: Math.round(offset < 472 * screenRatio ? offset : 472 * screenRatio) + 'px'
+                    });
+
+                    iphoneInner.css({
+                        height: Math.round(offset < 393 * screenRatio ? offset : 393 * screenRatio) + 'px'
+                    });
+                }
+            });
+
+        });
+    </script>
+</body>
+</html>
