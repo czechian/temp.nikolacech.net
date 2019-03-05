@@ -7,6 +7,7 @@ $(document).ready(function() {
     container
       .toggleClass('layout-flex', value === 'layout-flex')
       .toggleClass('layout-fixed', value === 'layout-fixed')
-      .toggleClass('layout-sticky', value === 'layout-sticky');
+      .toggleClass('layout-sticky', value === 'layout-sticky')
+      .toggleClass('layout-absolute', value === 'layout-absolute');
   })
 });

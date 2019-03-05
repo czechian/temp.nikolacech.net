@@ -21,11 +21,13 @@ body {
 }
 
 .layout-fixed .header,
-.layout-sticky .header {
+.layout-sticky .header,
+.layout-absolute .header {
   top: 0;
 }
 .layout-fixed .footer,
-.layout-sticky .footer {
+.layout-sticky .footer,
+.layout-absolute .footer {
   bottom: 0;
 }
 
@@ -58,6 +60,21 @@ body {
 .layout-flex .body {
   flex: 1 1 auto;
   overflow: auto;
+}
+
+.layout-absolute {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+}
+.layout-absolute .header,
+.layout-absolute .footer {
+  position: absolute;
+  left: 0;
+  right: 0;
 }
 
 input {
