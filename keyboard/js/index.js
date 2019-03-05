@@ -6,6 +6,7 @@ $(document).ready(function() {
     console.log(value);
     container
       .toggleClass('layout-flex', value === 'layout-flex')
-      .toggleClass('layout-fixed', value === 'layout-fixed');
+      .toggleClass('layout-fixed', value === 'layout-fixed')
+      .toggleClass('layout-sticky', value === 'layout-sticky');
   })
 });

@@ -21,20 +21,29 @@ body {
 }
 
 .layout-fixed .header,
+.layout-sticky .header {
+  top: 0;
+}
+.layout-fixed .footer,
+.layout-sticky .footer {
+  bottom: 0;
+}
+
+.layout-fixed .header,
 .layout-fixed .footer {
   position: fixed;
   left: 0;
   right: 0;
 }
-.layout-fixed .header {
-  top: 0;
-}
-.layout-fixed .footer {
-  bottom: 0;
-}
 .layout-fixed .body {
   margin-top: 50px;
   margin-bottom: 50px;
+}
+
+.layout-sticky .header,
+.layout-sticky .footer {
+  position: -webkit-sticky;
+  position: sticky;
 }
 
 .layout-flex {
