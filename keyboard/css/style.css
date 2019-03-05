@@ -1,0 +1,52 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+.header,
+.footer {
+  display: flex;
+  justify-content: space-between;
+  height: 30px;
+  padding: 10px 20px;
+  line-height: 30px;
+  background-color: silver;
+}
+
+.body {
+  padding: 20px;
+}
+
+.layout-fixed .header,
+.layout-fixed .footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+}
+.layout-fixed .header {
+  top: 0;
+}
+.layout-fixed .footer {
+  bottom: 0;
+}
+.layout-fixed .body {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.layout-flex {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+.layout-flex .header,
+.layout-flex .footer {
+  flex: 0 0 auto;
+}
+.layout-flex .body {
+  flex: 1 1 auto;
+  overflow: auto;
+}
