@@ -36,7 +36,8 @@ body {
   position: fixed;
   left: 0;
   right: 0;
-  transform: translate3d(0,0,0);
+  animation: repaint 1ms;
+  animation-iteration-count: infinite;
 }
 .layout-fixed .body {
   margin-top: 50px;
@@ -72,12 +73,27 @@ body {
   overflow: hidden;
 }
 .layout-absolute .header,
-.layout-absolute .footer {
+.layout-absolute .footer,
+.layout-absolute .body {
   position: absolute;
   left: 0;
   right: 0;
 }
+.layout-absolute .body {
+  top: 50px;
+  bottom: 50px;
+  overflow: auto;
+}
 
 input {
   font-size: 16px;
+}
+
+@keyframes repaint {
+  from {
+    width: 99.999%;
+  }
+  to {
+    width: 100%;
+  }
 }
