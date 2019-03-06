@@ -19,22 +19,13 @@
   <div class="header">
     <span>Header</span>
     <div class="layout-options">
-      <label class="layout-option">
-        <input type="radio" class="layout-option-input" name="layout-option" value="layout-fixed" checked>
-        <span>Fixed</span>
-      </label>
-      <label class="layout-option">
-        <input type="radio" class="layout-option-input" name="layout-option" value="layout-flex">
-        <span>Flex</span>
-      </label>
-      <label class="layout-option">
-        <input type="radio" class="layout-option-input" name="layout-option" value="layout-sticky">
-        <span>Sticky</span>
-      </label>
-      <label class="layout-option">
-        <input type="radio" class="layout-option-input" name="layout-option" value="layout-absolute">
-        <span>Absolute</span>
-      </label>
+      <select name="layout-option" id="layout-option">
+        <option value="layout-fixed">Fixed</option>
+        <option value="layout-flex">Flex</option>
+        <option value="layout-sticky">Sticky</option>
+        <option value="layout-absolute">Absolute</option>
+        <option value="layout-mixed">Mixed</option>
+      </select>
     </div>
   </div>
   <div class="body">

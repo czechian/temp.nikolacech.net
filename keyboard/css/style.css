@@ -21,6 +21,7 @@ body {
 
 .body {
   padding: 20px;
+  -webkit-overflow-scrolling: touch;
 }
 
 .layout-fixed .header,
@@ -53,16 +54,20 @@ body {
   position: sticky;
 }
 
-.layout-flex {
+.layout-flex,
+.layout-mixed {
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 .layout-flex .header,
-.layout-flex .footer {
+.layout-flex .footer,
+.layout-mixed .header,
+.layout-mixed .footer {
   flex: 0 0 auto;
 }
-.layout-flex .body {
+.layout-flex .body,
+.layout-mixed .body {
   flex: 1 1 auto;
   overflow: auto;
 }
@@ -86,7 +91,16 @@ body {
   top: 50px;
   bottom: 50px;
   overflow: auto;
-  -webkit-overflow-scrolling: touch;
+}
+
+.layout-mixed .body {
+  margin-bottom: 50px;
+}
+.layout-mixed .footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
 }
 
 input {
