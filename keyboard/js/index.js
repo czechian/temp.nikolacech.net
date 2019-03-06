@@ -8,7 +8,9 @@ $(document).ready(function() {
       .toggleClass('layout-absolute', value === 'layout-absolute')
       .toggleClass('layout-mixed', value === 'layout-mixed');
   });
-  
+
+  document.getElementById('input').value = window.innerHeight;
+
   $(window).on('resize', function() {
     document.getElementById('input').value = window.innerHeight;
   })
