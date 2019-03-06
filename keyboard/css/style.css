@@ -14,6 +14,9 @@ body {
   padding: 10px 20px;
   line-height: 30px;
   background-color: silver;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  z-index: 1000;
 }
 
 .body {
@@ -33,11 +36,11 @@ body {
 
 .layout-fixed .header,
 .layout-fixed .footer {
+  box-sizing: border-box;
   position: fixed;
   left: 0;
   right: 0;
-  animation: repaint 1s;
-  animation-iteration-count: infinite;
+  height: 50px;
 }
 .layout-fixed .body {
   margin-top: 50px;
@@ -83,17 +86,9 @@ body {
   top: 50px;
   bottom: 50px;
   overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 input {
   font-size: 16px;
-}
-
-@keyframes repaint {
-  from {
-    background-color: red;
-  }
-  to {
-    background-color: blue;
-  }
 }
