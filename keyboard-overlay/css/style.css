@@ -33,6 +33,7 @@ body {
   padding: 10px 20px;
   line-height: 30px;
   background-color: silver;
+  z-index: 100;
 }
 
 .body {
